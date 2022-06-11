@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="test suite" parallel="tests" thread-count="3">
+    <parameter name="homePageUrl" value="https://www.istegelsin.com"></parameter>
+    <test name="Test">
+        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="productName" value="kahve"></parameter>
+        <classes>
+            <class name="LoginTest"/>
+            <class name="ProductListTest"/>
+        </classes>
+    </test>
+</suite>

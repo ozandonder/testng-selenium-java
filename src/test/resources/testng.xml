@@ -1,8 +1,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="test suite" parallel="tests" thread-count="3">
+    <listeners>
+        <listener class-name="utils.ExtentReporter"/>
+        <listener class-name="utils.TestListener"/>
+    </listeners>
     <parameter name="homePageUrl" value="https://www.istegelsin.com"></parameter>
     <test name="Test">
-        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="browser" value="firefox"></parameter>
         <parameter name="productName" value="kahve"></parameter>
         <classes>
             <class name="LoginTest"/>

@@ -10,7 +10,7 @@ public class ProductListTest extends Driver {
     ProductListPage productListPage = new ProductListPage();
 
     @Parameters("productName")
-    @Test(description = "User should correctly see sorting for rising price", enabled = false)
+    @Test(description = "User should correctly see sorting for rising price")
     public void testRisingSorting(String productName) {
         loginPage.searchProductWithName(productName);
         productListPage.selectSortingOption("Fiyatı Artan")
@@ -18,11 +18,11 @@ public class ProductListTest extends Driver {
     }
 
     @Parameters("productName")
-    @Test(description = "User should be able to added the lowest price product to the cart", enabled = false)
+    @Test(description = "User should be able to added the lowest price product to the cart")
     public void testAddToCartCheapestProduct(String productName) {
         loginPage.searchProductWithName(productName);
         productListPage.selectSortingOption("Fiyatı Artan")
                 .addToCardFirstProduct()
-                .checkBasketIconCount("1");
+                .checkBasketIconCount("2");
     }
 }

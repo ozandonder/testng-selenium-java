@@ -9,20 +9,20 @@ public class LoginTest extends Driver {
 
     LoginPage loginPage = new LoginPage();
 
-    @Test(description = "User should see warning message for empty phone number")
+    @Test(description = "User should see warning message for empty phone number", groups = {"smoke"})
     public void testLoginEmptyPhoneNumber() {
         loginPage.tryToLogin("")
                 .checkWarningMessageForPhoneNum();
     }
 
-    @Test(description = "User should see warning message for missing phone number", enabled = false)
+    @Test(description = "User should see warning message for missing phone number")
     public void testLoginMissingPhoneNumber() {
         loginPage.tryToLogin("53399999")
                 .checkWarningMessageForPhoneNum();
     }
 
     //ignore reason: different message is shown in each run
-    @Test(description = "User should see warning message for invalid phone number", enabled = false)
+    @Test(description = "User should see warning message for invalid phone number")
     public void testLoginInvalidPhoneNumber() {
         loginPage.tryToLogin("9999999999")
                 .checkErrorMessageForPhoneNum();

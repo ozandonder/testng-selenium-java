@@ -10,10 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,7 +22,7 @@ public class Driver {
 
 
     @Parameters("browser")
-    @BeforeTest
+    @BeforeTest(alwaysRun = true)
     public static WebDriver launchBrowser(String browser) {
         switch (browser) {
             case "chrome" -> {
@@ -43,20 +40,21 @@ public class Driver {
             default -> throw new IllegalArgumentException("Browser type not supported for " + browser);
         }
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        logger("info","Browser running!!!");
+        logger("info", "Browser running!!!");
         return driver;
     }
 
     @Parameters("homePageUrl")
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void goToUrl(String homePageUrl) {
         driver.manage().deleteAllCookies();
         driver.get(homePageUrl);
     }
 
-    @AfterTest
+    @AfterTest(alwaysRun = true)
     public void tearDown() {
         driver.quit();
+        driver = null;
     }
 
     public void clickWebElement(By by) {
@@ -106,7 +104,7 @@ public class Driver {
         return driver;
     }
 
-    public static void logger(String logType, String message){
+    public static void logger(String logType, String message) {
         switch (logType) {
             case "error" -> {
                 log.error(message);

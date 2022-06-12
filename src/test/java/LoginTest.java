@@ -21,10 +21,9 @@ public class LoginTest extends Driver {
                 .checkWarningMessageForPhoneNum();
     }
 
-    //ignore reason: different message is shown in each run
     @Test(description = "User should see warning message for invalid phone number")
     public void testLoginInvalidPhoneNumber() {
-        loginPage.tryToLogin("9999999999")
+        loginPage.tryToLogin("5000000000")
                 .checkErrorMessageForPhoneNum();
     }
 

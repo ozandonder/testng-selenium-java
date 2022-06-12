@@ -6,7 +6,7 @@
     </listeners>
     <parameter name="homePageUrl" value="https://www.istegelsin.com"></parameter>
     <test name="Test">
-        <parameter name="browser" value="firefox"></parameter>
+        <parameter name="browser" value="chrome"></parameter>
         <parameter name="productName" value="kahve"></parameter>
         <classes>
             <class name="LoginTest"/>

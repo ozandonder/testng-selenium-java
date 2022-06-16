@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="test suite" parallel="tests" thread-count="3">
+<suite name="test suite" parallel="tests" thread-count="2">
     <listeners>
         <listener class-name="utils.ExtentReporter"/>
         <listener class-name="utils.TestListener"/>
@@ -9,8 +9,8 @@
         <parameter name="browser" value="chrome"></parameter>
         <parameter name="productName" value="kahve"></parameter>
         <classes>
-            <class name="LoginTest"/>
-            <class name="ProductListTest"/>
+            <class name="testcases.LoginTest"/>
+            <class name="testcases.ProductListTest"/>
         </classes>
     </test>
 </suite>

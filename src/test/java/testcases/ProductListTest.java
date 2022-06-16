@@ -1,3 +1,5 @@
+package testcases;
+
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.LoginPage;
@@ -6,8 +8,8 @@ import utils.Driver;
 
 public class ProductListTest extends Driver {
 
-    LoginPage loginPage = new LoginPage();
-    ProductListPage productListPage = new ProductListPage();
+    private final LoginPage loginPage = new LoginPage();
+    private final ProductListPage productListPage = new ProductListPage();
 
     @Parameters("productName")
     @Test(description = "User should correctly see sorting for rising price")

@@ -1,3 +1,5 @@
+package testcases;
+
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.LoginPage;
@@ -7,7 +9,7 @@ import utils.TestListener;
 @Listeners(TestListener.class)
 public class LoginTest extends Driver {
 
-    LoginPage loginPage = new LoginPage();
+    private final LoginPage loginPage = new LoginPage();
 
     @Test(description = "User should see warning message for empty phone number", groups = {"smoke"})
     public void testLoginEmptyPhoneNumber() {

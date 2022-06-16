@@ -17,9 +17,9 @@ public class LoginPage extends Driver {
     public static final By SEARCH_TEXTBOX = By.xpath("//*[@class='v3-capsul']//*[@class='search-inp']");
     public static final By SEARCH_BUTTON = By.xpath("//*[@class='v3-capsul']//*[@alt='search shape icon']");
 
-    String PHONE_WARNING_MESSAGE = "Lütfen numarayı kontrol edin";
-    String PHONE_INVALID_MESSAGE = "Geçersiz telefon numarası.";
-    String OTP_INVALID_MESSAGE = "Hatalı doğrulama kodu girdin.";
+    public static final String PHONE_WARNING_MESSAGE = "Lütfen numarayı kontrol edin";
+    public static final String PHONE_INVALID_MESSAGE = "Geçersiz telefon numarası.";
+    public static final String OTP_INVALID_MESSAGE = "Hatalı doğrulama kodu girdin.";
 
     public LoginPage tryToLogin(String phoneNumber) {
         clickWebElement(LOGIN_OR_REGISTER_BUTTON);

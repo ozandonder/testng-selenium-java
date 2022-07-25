@@ -1,16 +1,32 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="test suite" parallel="tests" thread-count="2">
+<suite name="Testng Suite" parallel="tests" thread-count="3">
     <listeners>
         <listener class-name="utils.ExtentReporter"/>
         <listener class-name="utils.TestListener"/>
     </listeners>
     <parameter name="homePageUrl" value="https://www.istegelsin.com"></parameter>
-    <test name="Test">
+    <test name="Chrome Tests" parallel="methods" thread-count="2">
         <parameter name="browser" value="chrome"></parameter>
         <parameter name="productName" value="kahve"></parameter>
         <classes>
             <class name="testcases.LoginTest"/>
-            <class name="testcases.ProductListTest"/>
+<!--            <class name="testcases.ProductListTest"/>-->
+        </classes>
+    </test>
+    <test name="Firefox Tests">
+            <parameter name="browser" value="firefox"></parameter>
+            <parameter name="productName" value="kahve"></parameter>
+            <classes>
+                <class name="testcases.LoginTest"/>
+    <!--            <class name="testcases.ProductListTest"/>-->
+            </classes>
+    </test>
+    <test name="Edge Tests">
+        <parameter name="browser" value="edge"></parameter>
+        <parameter name="productName" value="kahve"></parameter>
+        <classes>
+            <class name="testcases.LoginTest"/>
+            <!--            <class name="testcases.ProductListTest"/>-->
         </classes>
     </test>
 </suite>

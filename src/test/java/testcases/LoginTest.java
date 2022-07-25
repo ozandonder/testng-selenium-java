@@ -1,7 +1,6 @@
 package testcases;
 
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pages.LoginPage;
 import utils.Driver;
 import utils.TestListener;
@@ -9,7 +8,14 @@ import utils.TestListener;
 @Listeners(TestListener.class)
 public class LoginTest extends Driver {
 
-    private final LoginPage loginPage = new LoginPage();
+    private LoginPage loginPage;
+
+    @Parameters("homePageUrl")
+    @BeforeMethod
+    public void testSetup (String homePageUrl) {
+        getDriver().get(homePageUrl);
+        loginPage = new LoginPage(getDriver());
+    }
 
     @Test(description = "User should see warning message for empty phone number", groups = {"smoke"})
     public void testLoginEmptyPhoneNumber() {
@@ -23,7 +29,7 @@ public class LoginTest extends Driver {
                 .checkWarningMessageForPhoneNum();
     }
 
-    @Test(description = "User should see warning message for invalid phone number")
+    @Test(description = "User should see warning message for invalid phone number", enabled = false)
     public void testLoginInvalidPhoneNumber() {
         loginPage.tryToLogin("5000000000")
                 .checkErrorMessageForPhoneNum();

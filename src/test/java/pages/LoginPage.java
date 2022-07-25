@@ -1,11 +1,13 @@
 package pages;
 
 import org.openqa.selenium.By;
-import utils.Driver;
+import org.openqa.selenium.WebDriver;
+import utils.DriverUtils;
 
 import static org.testng.Assert.assertEquals;
 
-public class LoginPage extends Driver {
+public class LoginPage extends DriverUtils {
+    private final WebDriver driver;
 
     public static final By LOGIN_OR_REGISTER_BUTTON = By.xpath("//*[@class='capsul']//*[@class='register-title']");
     public static final By PHONE_TEXTBOX = By.id("phone-input");
@@ -20,6 +22,10 @@ public class LoginPage extends Driver {
     public static final String PHONE_WARNING_MESSAGE = "Lütfen numarayı kontrol edin";
     public static final String PHONE_INVALID_MESSAGE = "Geçersiz telefon numarası.";
     public static final String OTP_INVALID_MESSAGE = "Hatalı doğrulama kodu girdin.";
+
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+    }
 
     public LoginPage tryToLogin(String phoneNumber) {
         clickWebElement(LOGIN_OR_REGISTER_BUTTON);

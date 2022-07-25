@@ -1,17 +1,23 @@
 package pages;
 
 import org.openqa.selenium.By;
-import utils.Driver;
+import org.openqa.selenium.WebDriver;
+import utils.DriverUtils;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class ProductListPage extends Driver {
+public class ProductListPage extends DriverUtils {
+    private final WebDriver driver;
 
     public static final By PRODUCT_LISTING_SORTING_DROPDOWN = By.className("ig-control-inp");
     public static final By PRODUCT_CARD = By.className("product-card");
     public static final By FIRST_PRODUCT_ADD_TO_CARD_BUTTON = By.xpath("//*[@class='product-card'][1]//*[@class='add-cap']");
     public static final By CART_BUTTON = By.xpath("//*[@class='sticky-top']//*[@class='count-notify']");
+
+    public ProductListPage(WebDriver driver) {
+        this.driver = driver;
+    }
 
     public ProductListPage selectSortingOption(String sortOption) {
         waitForAjax();

@@ -8,8 +8,8 @@ import utils.Driver;
 
 public class ProductListTest extends Driver {
 
-    private final LoginPage loginPage = new LoginPage();
-    private final ProductListPage productListPage = new ProductListPage();
+    private  LoginPage loginPage;
+    private  ProductListPage productListPage;
 
     @Parameters("productName")
     @Test(description = "User should correctly see sorting for rising price")

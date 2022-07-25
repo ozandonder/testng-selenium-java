@@ -22,7 +22,7 @@ public class ExtentReporter implements IReporter {
 
     public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites,
                                String outputDirectory) {
-        extent = new ExtentReports(System.getProperty("user.dir") + "/target/failsafe-reports/extent-report.html", true);
+        extent = new ExtentReports(System.getProperty("user.dir") + "/target/surefire-reports/extent-report.html", true);
 
         for (ISuite suite : suites) {
             Map<String, ISuiteResult> result = suite.getResults();
